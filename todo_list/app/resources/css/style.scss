@@ -1,0 +1,209 @@
+$default: #25b99a;
+$faded: #c0cecb;
+$background: #edf0f1;
+$remove: #e05656;
+$header-height: 80px;
+
+@mixin button-border {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+
+@mixin fonts {
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+@mixin appearance {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance:none;
+}
+
+@mixin reset {
+  background: none;
+  border: 0px;
+  box-shadow: none;
+  outline: none;
+  @include appearance;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $background;
+  padding: $header-height 0 0 0;
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+body, input, button {
+  @include fonts;
+}
+
+.nofill {
+  fill:none;
+}
+
+header {
+  width: 100%;
+  height: $header-height;
+  position: fixed;
+  padding:15px;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  background-color: $default;
+  box-shadow:0px 2px 4px rgba(44, 62, 80, 0.15);
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+
+  input {
+    width: 100%;
+    height:50px;
+    float: left;
+    color: #fff;
+    text-indent: 18px;
+    padding: 0px 60px 0px 0px;
+    background: rgba(255,255,255,0.2);
+    @include button-border;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    @include appearance;
+
+    &::-webkit-input-placeholder {
+      color: rgba(255,255,255,0.75)
+    }
+    &::-moz-input-placeholder {
+      color: rgba(255,255,255,0.75)
+    }
+    &::-ms-input-placeholder {
+      color: rgba(255,255,255,0.75)
+    }
+    &::-o-input-placeholder {
+      color: rgba(255,255,255,0.75)
+    }
+  }
+
+  button {
+    width: 50px;
+    height:50px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index:2;
+    border-radius: 25px;
+    background: #fff;
+    border: 0;
+    box-shadow: none;
+    outline: none;
+    @include appearance;
+    cursor: pointer;
+
+    svg {
+      width: 16px;
+      height: 16px;
+      position:absolute;
+      top: 50%;
+      left:50%;
+      margin: -8px 0 0 -8px;
+
+      .fill {
+        fill: $default;
+      }
+    }
+  }
+}
+
+.container {
+  width: 100%;
+  float: left;
+  padding: 15px;
+}
+
+ul.todo {
+  width: 100%;
+  float: left;
+  list-style-type: none;
+
+  li {
+    width:100%;
+    min-height: 50px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #444;
+    line-height: 22px;
+    float: left;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 1px 2px rgba(44,62,80,0.10);
+    margin: 0 0 10px 0;
+    position: relative;
+    padding: 14px 100px 14px 14px;
+
+    .buttons {
+      width: 100px;
+      height: 50px;
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      button {
+        width: 50px;
+        height: 50px;
+        float: left;
+        position: relative;
+        @include reset;
+
+        &:last-of-type:before {
+          content: '';
+          width: 1px;
+          height: 30px;
+          position: absolute;
+          top: 10px;
+          left: 0;
+          background: $background;
+        }
+
+        svg {
+          width: 22px;
+          height: 22px;
+          position: absolute;
+          top: 50%;
+          left:50%;
+          margin: -11px 0 0 -11px;
+        }
+      }
+    }
+
+    &:last-of-type {
+      margin:0;
+    }
+  }
+}
+
+ul.todo li .buttons button svg .fill {
+  cursor: pointer;
+  -moz-transition: fill 0.2s ease;
+  -webkit-transition: fill 0.2s ease;
+  -o-transition: fill 0.2s ease;
+  -ms-transition: fill 0.2s ease;
+  transition: fill 0.2s ease;
+}
+
+ul.todo li .buttons button.remove {
+  svg .fill {
+    fill: $faded;
+  }
+
+  &:hover svg .fill {
+    fill: $remove;
+  }
+}
