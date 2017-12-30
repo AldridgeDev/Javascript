@@ -1,7 +1,9 @@
 $default: #25b99a;
+$default-hover: rgba(37,185,154,0.75);
 $faded: #c0cecb;
 $background: #edf0f1;
 $remove: #e05656;
+$completed: #d8e5e0;
 $header-height: 80px;
 
 @mixin button-border {
@@ -187,6 +189,11 @@ ul.todo {
       margin:0;
     }
   }
+
+  &:empty:after {
+    content: 'You have nothing to do!';
+    margin: 15px 0 0 0;
+  }
 }
 
 ul.todo li .buttons button svg .fill {
@@ -206,4 +213,60 @@ ul.todo li .buttons button.remove {
   &:hover svg .fill {
     fill: $remove;
   }
+}
+
+ul.todo li .buttons button.complete svg {
+    border-radius: 11px;
+    border: 1.5px solid $default;
+    transition: background 0.2s ease;
+
+    .fill {
+      fill: $default;
+    }
+}
+
+ul.todo#completed li .buttons button.complete svg {
+  background: $default;
+  border:0px;
+
+  .fill {
+    fill: #fff;
+  }
+}
+
+ul.todo:not(#completed) li .buttons button.complete:hover svg {
+  background: $default-hover;
+
+  .fill {
+    fill: #fff;
+  }
+}
+
+ul.todo#completed {
+  padding: 60px 0 0 0;
+  position: relative;
+
+    &:before {
+      content: '';
+      width: 150px;
+      height:1px;
+      background: $completed;
+      position: absolute;
+      top:30px;
+      left: 50%;
+      margin: 0 0 0 -75px;
+  }
+
+    &:empty:after {
+      content: 'You have yet to complete any tasks';
+    }
+}
+
+ul.todo#todo:after,
+ul.todo#completed:after {
+  width: 100%;
+  display: block;
+  text-align: center;
+  font-size: 12px;
+  color: #aaa;
 }
