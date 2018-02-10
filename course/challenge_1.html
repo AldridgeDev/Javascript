@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Course Challenge 1</title>
+</head>
+<body>
+<!-- <h1>Coding Challenge 1</h1>
+John's Height: <input type="text" id="johnheight"><br>
+John's Age: <input type="text" id="johnage"><br><br>
+
+Jim's Height <input type="text" id="jimheight"><br>
+Jim's Age <input type="text" id="jimage"><br><br>
+
+<button type="button" onclick="calculate()">Calculate</button> -->
+
+<script type="text/javascript">
+// Create variables for heights and ages of two friends
+// Rules: height in centimeters + (age * 5)
+// Calculate their scores
+// Decide who wins and print to console
+var johnHeight = 100;
+var johnAge = 24;
+
+var jimHeight = 100;
+var jimAge = 24;
+
+var jamesHeight = 90;
+var jamesAge = 24;
+
+var johnTotal = johnHeight + (johnAge * 5);
+var jimTotal = jimHeight + (jimAge * 5);
+var jamesTotal = jamesHeight + (jamesAge * 5);
+
+  if (johnTotal > jimTotal && johnTotal > jamesTotal) {
+    console.log("John wins");
+  } else if (jimTotal > johnTotal && jimTotal > jamesTotal) {
+    console.log("Jim wins");
+  } else if (jamesTotal > jimTotal && jamesTotal > johnTotal) {
+    console.log("james wins");
+  } else if (johnTotal == jimTotal && johnTotal == jamesTotal && jimTotal == jamesTotal) {
+    console.log("Big tie!")
+  } else {
+    console.log("You have an error somewhere")
+  }
+
+</script>
+</body>
+</html>

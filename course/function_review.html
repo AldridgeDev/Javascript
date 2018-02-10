@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Course Challenge 2</title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+  function calculateAge(yearOfBirth) {
+    var age = 2016 - yearOfBirth;
+    return age;
+  }
+
+  var johnAge = calculateAge(1990);
+  var mikeAge = calculateAge(1969);
+
+  function yearsUntilRetirement(name, year){
+    var age = calculateAge(year)
+    var retirement = 65 - age;
+    console.log(name + ' retires in ' + retirement + ' years');
+  }
+
+  if (retirement >= 0) {
+    console.log('This person has already retired');
+  }
+
+  yearsUntilRetirement('John', 1990);
+
+</script>
+</body>
+</html>
