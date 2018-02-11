@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Arrays Review</title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+  // Arrays
+  var names = ['John', 'Jane', 'Mark'];
+  var years = [1990, 1969, 1948];
+
+  names[1] = 'Ben' // overwrites
+  console.log(names[1]);
+
+  var john = ['John', 'Smith', 1990, 'Construction', true];
+
+  john.push('blue'); //changes original array
+  console.log(john);
+  john.unshift('Mr.'); //adds at the beginning of an array
+  console.log(john);
+  john.pop(); //removes from the end
+  console.log(john);
+  john.shift(); //removes from the beginning
+  console.log(john);
+  console.log(john.indexOf(1990)); //returns position of the element that was passed in
+
+  if (john.indexOf('teacher') === -1) {
+    console.log('John is not a teacher');
+  } else {
+    console.log('John is a teacher!');
+  }
+
+// ---------------------------------------------------------------------
+  //Objects
+  var harry = {
+    // key : value
+    firstName : 'harry',
+    lastName: 'potter',
+    age: 22,
+    isMarried: true,
+    job: 'auror'
+  }
+
+  console.log(harry);
+  //reading values
+  console.log(harry.lastName);
+  console.log(harry['lastName']);
+  console.log(harry[1]); //does not work
+
+  // you can create a variable with the name of a key and manipulate it
+  var job = 'job';
+  console.log(harry[job]);
+
+  //data manipulation
+  harry.lastName = 'Weasley';
+  harry['job'] = 'potions master';
+  console.log(harry);
+
+  // you can also create an object this way, though it's not as good
+  var ginny = new Object();
+  ginny.firstName = 'ginny';
+  ginny.lastName = 'potter'
+  ginny.birthday = 1990;
+  ginny.job = 'mom';
+  ginny.isMarried = true;
+
+  console.log(ginny);
+
+// ---------------------------------------------------------------------
+  //Objects and Methods
+  var han = {
+    firstName : 'Han',
+    lastName : 'Solo',
+    birthYear : '1977',
+    job : 'smuggler',
+    isMarried : true,
+    family : ['Leia', 'Ben', 'Luke'],
+    //function expression
+    calculateAge: function(){
+      // return 2018 - this.birthYear;
+      //"this" refers to the john Object
+      //being specific with what you want will return the value
+      this.age = 2018 - this.birthYear;
+    }
+  };
+
+  han.calculateAge();
+
+  console.log(han);
+
+  // var age = han.calculateAge();
+  // han.age = age;
+  // console.log(han);
+
+</script>
+</body>
+</html>

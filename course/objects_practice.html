@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Objects Practice</title>
+</head>
+<body>
+  <h1>Objects Practice</h1>
+  <hr>
+  <h3>Key Indicators</h3>
+    Scripture Study: <input type="text" id="firstIndicator"><br><br>
+    Member Present: <input type="text" id="secondIndicator"><br><br>
+    New Investigators: <input type="text" id="thirdIndicator"><br><br>
+    <button onclick="storeData()">Submit</button>
+    <div id="output"></div>
+
+<script>
+  var scriptureStudy = parseFloat(document.getElementById("firstIndicator").value);
+  var memberPresent = parseFloat(document.getElementById("secondIndicator").value);
+  var newInvestigators = parseFloat(document.getElementById("thirdIndicator").value);
+  document.getElementById("output").innerHTML = storeData(scriptureStudy, memberPresent, newInvestigators);
+  // console.log(scriptureStudy);
+
+  function storeData(indicatorOne, indicatorTwo, indicatorThree){
+    var daily = {
+      indicatorOne: scriptureStudy,
+      indicatorTwo: memberPresent,
+      indicatorThree: newInvestigators
+    }
+    console.log(daily);
+  }
+</script>
+</body>
+</html>

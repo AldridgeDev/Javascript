@@ -12,19 +12,83 @@
   // Create an empty array
   // Loop to fill the array with ages of people
   // Another loop to log into console whether each person is an adult
-  // Create a function called printFullAge which receives an array as
+  // Create a function called printFullAge which receives age as
   //  an argument, executes steps 2, 3, 4, and returns a boolean if
   //  person is an adult or not
 
+  var peopleYearsBorn = [1980, 1976, 2000, 2002];
+  var ages = [];
 
-  var peopleYearsBorn = [1980, 1976, 1999, 2002];
-  var result = [];
+  console.log('-----------------------------------');
+  console.log('Part One -- Filling the empty array');
+  console.log('-----------------------------------');
 
-  for (var i = 0; peopleYearsBorn.length; i++) {
-    console.log(result[i]);
-    console.log(i);
-    result[i] += peopleYearsBorn[i];
+  for (var i = 0; i < peopleYearsBorn.length; i++) {
+    ages[i] =  2018 - peopleYearsBorn[i];
+    console.log(ages[i]);
   }
+
+  console.log('---------------------------------------');
+  console.log('Part Two -- Checking who is 18 or older');
+  console.log('---------------------------------------');
+
+  for (var i = 0; i < peopleYearsBorn.length; i++) {
+    ages[i] =  2018 - peopleYearsBorn[i];
+    console.log(ages[i]);
+
+    if (ages[i] > 18) {
+      console.log('This person is an adult');
+    } else if (ages[i] === 18) {
+      console.log('This person just became an adult');
+    } else if (ages[i] < 18) {
+      console.log('This person is underage');
+    }
+  }
+
+  console.log('--------------------------');
+  console.log('Part Three -- The Function');
+  console.log('--------------------------');
+
+
+
+  function printFullAge(years) {
+    var years = [2001, 2002, 1980, 1970];
+    var ages = [];
+    var fullAges = [];
+
+    for (var i = 0; i < years.length; i++) {
+      ages[i] =  2018 - years[i];
+      // console.log(ages[i]);
+    }
+
+    for (var i = 0; i < ages.length; i++){
+      if (ages[i] > 18) {
+        console.log(ages[i]);
+        console.log('This person is an adult');
+        fullAges.push(true);
+      } else if (ages[i] === 18) {
+        console.log(ages[i]);
+        console.log('This person just became an adult');
+        fullAges.push(true);
+      } else if (ages[i] < 18) {
+        console.log(ages[i]);
+        console.log('This person is underage');
+        fullAges.push(false);
+      }
+    }
+    return fullAges;
+
+  }
+
+  printFullAge();
+
+  console.log('--------------------------');
+  console.log('Part Four -- Calculating');
+  console.log('--------------------------');
+
+  // var years = [2001, 2002, 1953, 1976];
+  // var full_1 = printFullAge(years);
+  // var full_2 = printFullAge(2012, 2000, 1999);
 
 </script>
 </body>
