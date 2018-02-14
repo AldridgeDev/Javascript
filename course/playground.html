@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta author="Antonio Aldridge">
+  <title>Javascript Playground</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>Set Key Indicators</h1> First Indicator: <input type="text" id="indicator-1-name"><br> Second Indicator: <input type="text" id="indicator-2-name"><br> Third Indicator: <input type="text" id="indicator-3-name"><br>
+  <br>
+  <span id="set-indicators">Set Indicators</span>
+  <br><br>
+  <h1>Your Indicators</h1>
+  <span id="indicator-1"></span><input type="text" id="indicator-1-value"><br><br>
+  <span id="indicator-2"></span><input type="text" id="indicator-2-value"><br><br>
+  <span id="indicator-3"></span><input type="text" id="indicator-3-value"><br><br>
+  <span id="submit">Submit</span>
+  <br><br>
+  <h1>Outcomes</h1>
+  <span id="outcome-1"></span><input type="text" id="indicator-1-outcome"><br><span id="output-1"></span><br><br>
+  <span id="outcome-2"></span><input type="text" id="indicator-2-outcome"><br><span id="output-2"></span><br><br>
+  <span id="outcome-3"></span><input type="text" id="indicator-3-outcome"><br><span id="output-3"></span><br><br>
+  <div id="output">Compare</div>
+
+  <script>
+    var firstValue, secondValue, thirdValue;
+
+    var first = document.getElementById('indicator-1-name').value;
+    var second = document.getElementById('indicator-2-name').value;
+    var third = document.getElementById('indicator-3-name').value;
+
+    // Transfer indicator names to the Your Indicators section
+    document.querySelector('#set-indicators').addEventListener('click', function() {
+      document.getElementById('indicator-1').innerHTML = first + ' ';
+      document.getElementById('indicator-2').innerHTML = second + ' ';
+      document.getElementById('indicator-3').innerHTML = third + ' ';
+
+      document.getElementById('outcome-1').innerHTML = first + ' ';
+      document.getElementById('outcome-2').innerHTML = second + ' ';
+      document.getElementById('outcome-3').innerHTML = third + ' ';
+    });
+
+    // setting values and comparing outcomes
+    document.querySelector('#submit').addEventListener('click', setValues);
+    // document.querySelector('#submit').addEventListener('click', function(){
+    //   console.log(firstValue, secondValue, thirdValue);
+    // });
+
+    function setValues() {
+      firstValue = parseFloat(document.getElementById('indicator-1-value').value);
+      secondValue = parseFloat(document.getElementById('indicator-2-value').value);
+      thirdValue = parseFloat(document.getElementById('indicator-3-value').value);
+    }
+
+    document.querySelector('#output').addEventListener('click', function() {
+      var firstOutcome = parseFloat(document.getElementById('indicator-1-outcome').value);
+      var secondOutcome = parseFloat(document.getElementById('indicator-2-outcome').value);
+      var thirdOutcome = parseFloat(document.getElementById('indicator-3-outcome').value);
+
+      // first goal
+      if (firstValue === firstOutcome) {
+        document.getElementById('output-1').innerHTML = 'You met your goal!';
+      } else if (firstValue < firstOutcome) {
+        document.getElementById('output-1').innerHTML = 'You exceeded your goal!';
+      } else if (firstValue > firstOutcome) {
+        document.getElementById('output-1').innerHTML = 'You did not meet your goal';
+      }
+
+      // second goal
+      if (secondValue === secondOutcome) {
+        document.getElementById('output-2').innerHTML = 'You met your goal!';
+      } else if (secondValue < secondOutcome) {
+        document.getElementById('output-2').innerHTML = 'You exceeded your goal!';
+      } else if (secondValue > secondOutcome) {
+        document.getElementById('output-2').innerHTML = 'You did not meet your goal';
+      }
+
+      // third goal
+      if (thirdValue === thirdOutcome) {
+        document.getElementById('output-3').innerHTML = 'You met your goal!';
+      } else if (thirdValue < thirdOutcome) {
+        document.getElementById('output-3').innerHTML = 'You exceeded your goal!';
+      } else if (thirdValue > thirdOutcome) {
+        document.getElementById('output-3').innerHTML = 'You did not meet your goal';
+      }
+    });
+  </script>
+</body>
+
+</html>
